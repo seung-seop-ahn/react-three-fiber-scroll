@@ -9,6 +9,7 @@
 ```sh
 $ npm create vite@latest react-three-fiber-scroll -- --template react
 $ npm install three @react-three/drei @react-three/fiber recoil styled-components
+$ npm install gsap
 ```
 
 ## Usage
@@ -16,6 +17,10 @@ $ npm install three @react-three/drei @react-three/fiber recoil styled-component
 ```sh
 $ npm run dev
 ```
+
+## Reference
+
+- [gsap](https://gsap.com/docs/v3/GSAP/gsap.to())
 
 ## Author
 
