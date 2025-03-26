@@ -1,4 +1,4 @@
-import { OrbitControls } from "@react-three/drei";
+import { ScrollControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import * as THREE from "three";
 import Dancer from "./Dancer";
@@ -19,9 +19,12 @@ export default function MainCanvas() {
       }}
       scene={{ background: new THREE.Color(0x000000) }}
     >
-      <directionalLight position={[10, 10, 10]} intensity={1} />
-      <Dancer />
-      <OrbitControls />
+      <ScrollControls
+        pages={8}
+        damping={0.25}
+      >
+        <Dancer />
+      </ScrollControls>
     </Canvas>
   );
 }
