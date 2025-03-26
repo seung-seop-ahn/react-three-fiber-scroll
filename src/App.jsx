@@ -1,12 +1,14 @@
+import { RecoilRoot } from "recoil";
 import styled from "styled-components";
 import MainCanvas from "./components/MainCanvas";
 
 function App() {
-
   return (
-    <Wrapper>
-      <MainCanvas />
-    </Wrapper>
+    <RecoilRoot>
+      <Wrapper>
+        <MainCanvas />
+      </Wrapper>
+    </RecoilRoot>
   )
 }
 

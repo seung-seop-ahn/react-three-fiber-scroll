@@ -4,6 +4,8 @@
 
 ## Install
 
+- Recoil 0.7.7 Version requires other dependency version modification for compatibility (Check package.json)
+
 ```sh
 $ npm create vite@latest react-three-fiber-scroll -- --template react
 $ npm install three @react-three/drei @react-three/fiber recoil styled-components
