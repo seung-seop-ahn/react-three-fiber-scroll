@@ -6,6 +6,7 @@ import { useRecoilValue } from "recoil";
 import { IsEnteredAtom } from "../stores";
 import Loader from "./Loader";
 
+let timeline;
 export default function Dancer() {
   const three = useThree();
   const dancerRef = useRef();
@@ -18,6 +19,9 @@ export default function Dancer() {
 
   useFrame(() => {
     console.log(scroll.offset);
+
+    if (!isEntered) return;
+    timeline.seek(scroll.offset * timeline.duration());
   });
 
   useEffect(() => {
@@ -46,6 +50,19 @@ export default function Dancer() {
       z: 0,
     })
   }, [isEntered, three.camera.position, three.camera.rotation]);
+
+  useEffect(() => {
+    if (!isEntered) return;
+    if (!dancerRef.current) return;
+
+    timeline = gsap.timeline();
+    timeline.from(dancerRef.current.rotation, {
+      duration: 4,
+      y: -4 * Math.PI,
+    },
+      0.5
+    );
+  }, [isEntered]);
 
   if (!isEntered) return <Loader isCompleted={true} />;
 
